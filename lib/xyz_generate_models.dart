@@ -4,6 +4,8 @@
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
+library xyz_generate_models;
+
 import 'package:build/build.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:source_gen/source_gen.dart';
@@ -11,7 +13,7 @@ import 'package:source_gen/source_gen.dart';
 import 'package:xyz_generate_models_annotations/xyz_generate_models_annotations.dart';
 import 'package:xyz_utils/xyz_utils.dart';
 
-import 'model_visitor.dart';
+import 'visitor.dart';
 import 'type_source_mapper.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -33,7 +35,7 @@ class ModelGenerator extends GeneratorForAnnotation<GenerateModel> {
   ) {
     // [1] Read the input for the generator.
 
-    final visitor = ModelVisitor();
+    final visitor = Visitor();
     element.visitChildren(visitor);
     final buffer = StringBuffer();
     final nameSuperClass = visitor.nameClass;
