@@ -534,10 +534,10 @@ final defaultFromMappers = TMappers.unmodifiable({
   //
   r"^\w+Type$": (e) {
     if (e is! MapperSubEvent) throw TypeError();
-    return "labelTo${e.keyMatchGroups?.elementAt(0)}(letAs<String>(${e.p}))!";
+    return "nameTo${e.keyMatchGroups?.elementAt(0)}(letAs<String>(${e.p}))!";
   },
   r"^(\w+Type)\?$": (e) {
     if (e is! MapperSubEvent) throw TypeError();
-    return "labelTo${e.keyMatchGroups?.elementAt(1)}(letAs<String>(${e.p}))";
+    return "nameTo${e.keyMatchGroups?.elementAt(1)}(letAs<String>(${e.p}))";
   },
 });
